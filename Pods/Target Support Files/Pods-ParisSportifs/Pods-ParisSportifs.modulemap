@@ -1,0 +1,6 @@
+framework module Pods_ParisSportifs {
+  umbrella header "Pods-ParisSportifs-umbrella.h"
+
+  export *
+  module * { export * }
+}

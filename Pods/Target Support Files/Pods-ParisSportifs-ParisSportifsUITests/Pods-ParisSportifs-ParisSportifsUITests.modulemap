@@ -1,0 +1,6 @@
+framework module Pods_ParisSportifs_ParisSportifsUITests {
+  umbrella header "Pods-ParisSportifs-ParisSportifsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
