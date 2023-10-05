@@ -17,14 +17,15 @@ class ViewController: UIViewController,UISearchBarDelegate {
     var LeaguesViewModel: LeaguesViewModel!
     var LeaguesArray: [League] = []
     var filteredItems: [League] = []
+    var TeamsItems: [Team] = []
     var league : League!
 
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
-     //   LeaguesCollection.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-
+   
+        configureFlowLayout()
         LeaguesViewModel = ParisSportifs.LeaguesViewModel()
         LeaguesViewModel.getLeagues { [weak self] (Leagues, error) in
             if let error = error {
@@ -34,7 +35,6 @@ class ViewController: UIViewController,UISearchBarDelegate {
             if let Leagues = Leagues {
                 
                 self?.LeaguesArray = Leagues
-             //   print(Leagues)
                 self?.LeaguesCollection.reloadData()
 
 
@@ -48,19 +48,64 @@ class ViewController: UIViewController,UISearchBarDelegate {
         filteredItems = LeaguesArray.filter { item in
             return item.strLeague!.lowercased().contains(searchText.lowercased())
         }
-        print(filteredItems)
-        self.LeaguesCollection.reloadData()
+       
+        if filteredItems.count == 1 {
+           
+            let  LeagueTeam = filteredItems.first?.strLeague
+            
+            LeaguesViewModel.getTeamsByLeague(LeagueTeam : LeagueTeam ?? " " , completion:  { [weak self] (Teams, error) in
+                if let error = error {
+                    print(error)
+                   
+                }
+                
+                if let Teams = Teams {
+                    self?.TeamsItems = []
+                    self?.TeamsItems = Teams
+                    print(Leagues)
+                    self?.LeaguesCollection.reloadData()
+
+
+                    
+                }
+                print("retrieved \(self!.TeamsItems.count) Teams")
+
+            })
+                                              
+            
+        }
+        else {
+            self.TeamsItems = []
+            print(filteredItems)
+            self.LeaguesCollection.reloadData()
+            
+        }
+        
     }
+    func configureFlowLayout() {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: (LeaguesCollection.frame.width - 20) / 2, height: 100) // Adjust the width and height as needed
+        layout.minimumInteritemSpacing = 10 // Adjust the spacing between cells
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // Adjust the section insets
+        LeaguesCollection.collectionViewLayout = layout
     }
+    
+    
+    
+}
 
 
 
 
 
-extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if filteredItems.count > 0 {
+        if filteredItems.count > 1 {
             return  filteredItems.count
+        }
+        else if filteredItems.count == 1{
+            return TeamsItems.count
+
         }
         else {
             return LeaguesArray.count
@@ -72,19 +117,54 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
 
             
-                  if filteredItems.count > 0 {
+                  if filteredItems.count > 1 {
                      league = filteredItems[indexPath.row]
+                      cell.titleLabel.text = league.strLeague
+                      cell.imageView.image = UIImage(named: "league")
                            }
-                      else {
+                 else if filteredItems.count == 1{
+                  let team = TeamsItems[indexPath.row]
+                     cell.titleLabel.text = team.strAlternate
+                     if (team.strTeamLogo != nil) {
+                         if let imageURL = URL(string: team.strTeamBadge!) {
+                             LeaguesViewModel.getImage(from : imageURL , completion: { [weak self] (image, error) in
+                                 if let error = error {
+                                     
+                                 }
+                                 
+                                 if let image = image {
+                                     DispatchQueue.main.async() { [weak self] in
+                                         cell.imageView.image = image
+                                      //   cell.imageView.contentMode = .scaleAspectFit
+                                        // cell.imageView.backgroundColor = UIColor.lightGray
+                                         cell.imageView.layer.cornerRadius = 10
+                                         cell.imageView.clipsToBounds = true
+                                         cell.imageView.layer.shadowColor = UIColor.black.cgColor
+                                         cell.imageView.layer.shadowOpacity = 0.5
+                                         cell.imageView.layer.shadowOffset = CGSize(width: 4, height: 4)
+                                         cell.imageView.layer.masksToBounds = false
+                                         cell.imageView.layer.shadowRadius = 5.0
+                                         
+                                     } }})
+                             
+                         }}
+                        
+
+                   }
+                      else{
                     league = LeaguesArray[indexPath.row]
+                    cell.titleLabel.text = league.strLeague
+                    cell.imageView.image = UIImage(named: "league")
+
 
                      }
-                    cell.titleLabel.text = league.strLeague!
        
        
             
             return cell
         }
+    
+
     
    
     

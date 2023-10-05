@@ -19,6 +19,7 @@
 		2582525C2ACF0D20006BB70D /* ParisSportifsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2582525B2ACF0D20006BB70D /* ParisSportifsUITestsLaunchTests.swift */; };
 		258252742ACF17AF006BB70D /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258252732ACF17AF006BB70D /* Common.swift */; };
 		25C87F622ACF2A6F00D469A4 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C87F612ACF2A6F00D469A4 /* CollectionViewCell.swift */; };
+		25C87F642ACF44E700D469A4 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C87F632ACF44E700D469A4 /* Team.swift */; };
 		25D658BB2ACF199B00F52BE5 /* LeaguesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D658BA2ACF199B00F52BE5 /* LeaguesAPI.swift */; };
 		25D658BD2ACF19CF00F52BE5 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D658BC2ACF19CF00F52BE5 /* League.swift */; };
 		25D658BF2ACF1B9B00F52BE5 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D658BE2ACF1B9B00F52BE5 /* DataError.swift */; };
@@ -62,6 +63,7 @@
 		2582525B2ACF0D20006BB70D /* ParisSportifsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisSportifsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		258252732ACF17AF006BB70D /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		25C87F612ACF2A6F00D469A4 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		25C87F632ACF44E700D469A4 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		25D658BA2ACF199B00F52BE5 /* LeaguesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesAPI.swift; sourceTree = "<group>"; };
 		25D658BC2ACF19CF00F52BE5 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		25D658BE2ACF1B9B00F52BE5 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				25D658BC2ACF19CF00F52BE5 /* League.swift */,
+				25C87F632ACF44E700D469A4 /* Team.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				258252382ACF0D1A006BB70D /* SceneDelegate.swift in Sources */,
 				258252742ACF17AF006BB70D /* Common.swift in Sources */,
 				258252402ACF0D1A006BB70D /* ParisSportifs.xcdatamodeld in Sources */,
+				25C87F642ACF44E700D469A4 /* Team.swift in Sources */,
 				25D658BF2ACF1B9B00F52BE5 /* DataError.swift in Sources */,
 				25D658BB2ACF199B00F52BE5 /* LeaguesAPI.swift in Sources */,
 			);

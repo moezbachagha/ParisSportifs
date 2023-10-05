@@ -11,6 +11,7 @@ import UIKit
 class LeaguesViewModel {
     
 private(set) var Leagues: [League] = []
+private(set) var Teams: [Team] = []
 private(set) var error: DataError? = nil
 
 private let apiService: LeaguesAPILogic
@@ -21,6 +22,7 @@ private let apiService: LeaguesAPILogic
     
     
 func getLeagues(completion: @escaping( ([League]?, DataError?) -> () ) ) {
+    self.Leagues = []
     apiService.getLeagues { [weak self] result in
         
         switch result {
@@ -34,7 +36,21 @@ func getLeagues(completion: @escaping( ([League]?, DataError?) -> () ) ) {
     }
 }
    
-                         
+    func getTeamsByLeague(LeagueTeam :String ,completion: @escaping( ([Team]?, DataError?) -> () ) ) {
+        self.Teams = []
+        apiService.getTeamsByLeague(LeagueTeam : LeagueTeam, completion:  { [weak self] result in
+            
+            switch result {
+            case .success(let Teams):
+                self?.Teams = Teams ?? []
+                completion(Teams, nil)
+            case .failure(let error):
+                self?.error = error
+                completion(nil, error)
+            }
+        }
+                                    )
+    }
     
     
     func getImage(from url: URL, completion: @escaping( (UIImage?)?, DataError?) -> () )  {
