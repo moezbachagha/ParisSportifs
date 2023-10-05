@@ -101,6 +101,7 @@
 		258252342ACF0D1A006BB70D /* ParisSportifs */ = {
 			isa = PBXGroup;
 			children = (
+				258252682ACF0ED8006BB70D /* App */,
 				258252352ACF0D1A006BB70D /* AppDelegate.swift */,
 				258252372ACF0D1A006BB70D /* SceneDelegate.swift */,
 				258252392ACF0D1A006BB70D /* ViewController.swift */,
@@ -128,6 +129,85 @@
 				2582525B2ACF0D20006BB70D /* ParisSportifsUITestsLaunchTests.swift */,
 			);
 			path = ParisSportifsUITests;
+			sourceTree = "<group>";
+		};
+		258252682ACF0ED8006BB70D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2582526B2ACF0F76006BB70D /* UI Layer */,
+				258252692ACF0EE9006BB70D /* Data Layer */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		258252692ACF0EE9006BB70D /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				2582526E2ACF0FAF006BB70D /* Shared */,
+				2582526D2ACF0FA0006BB70D /* Networking */,
+				2582526C2ACF0F92006BB70D /* Models */,
+			);
+			path = "Data Layer";
+			sourceTree = "<group>";
+		};
+		2582526B2ACF0F76006BB70D /* UI Layer */ = {
+			isa = PBXGroup;
+			children = (
+				258252722ACF1080006BB70D /* View Controllers */,
+				258252712ACF1070006BB70D /* Views */,
+				258252702ACF105D006BB70D /* Storyboards */,
+				2582526F2ACF1043006BB70D /* View Models */,
+			);
+			path = "UI Layer";
+			sourceTree = "<group>";
+		};
+		2582526C2ACF0F92006BB70D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2582526D2ACF0FA0006BB70D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		2582526E2ACF0FAF006BB70D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2582526F2ACF1043006BB70D /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		258252702ACF105D006BB70D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		258252712ACF1070006BB70D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		258252722ACF1080006BB70D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
