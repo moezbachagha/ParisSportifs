@@ -6,6 +6,7 @@ target 'ParisSportifs' do
   use_frameworks!
     pod 'Alamofire'  
     pod 'SwiftyJSON'
+    pod 'SwiftLint'
 
   # Pods for ParisSportifs
 

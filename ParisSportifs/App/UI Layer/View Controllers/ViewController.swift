@@ -82,6 +82,43 @@ class ViewController: UIViewController,UISearchBarDelegate {
         }
         
     }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        filteredItems = LeaguesArray.filter { item in
+            return (item.strLeague!.lowercased() == searchBar.text!.lowercased())
+        }
+        
+        if filteredItems.count == 1 {
+            
+            let  LeagueTeam = filteredItems.first?.strLeague
+            
+            LeaguesViewModel.getTeamsByLeague(LeagueTeam : LeagueTeam ?? " " , completion:  { [weak self] (Teams, error) in
+                if let error = error {
+                    print(error)
+                    
+                }
+                
+                if let Teams = Teams {
+                    self?.TeamsItems = []
+                    self?.TeamsItems = Teams
+                    self?.TeamsItems.sort { $0.strTeam! > $1.strTeam! }
+                    self?.LeaguesCollection.reloadData()
+                    
+                    
+                    
+                }
+                print("retrieved \(self!.TeamsItems.count) Teams")
+                
+            })
+            
+            
+        }
+        else {
+            self.TeamsItems = []
+            print(filteredItems)
+            self.LeaguesCollection.reloadData()
+            
+        }
+    }
     func configureFlowLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: (LeaguesCollection.frame.width - 20) / 2, height: 100)
