@@ -11,14 +11,9 @@ class Common: NSObject {
 
     struct Leagues {
         static let All = "https://www.thesportsdb.com/api/v1/json/50130162/all_leagues.php"
-        
-        static let Details = "https://api.themoviedb.org/3/movie/"
-      
-      
 
+        static let Teams = "https://www.thesportsdb.com/api/v1/json/50130162/search_all_teams.php"
 
+    }
 
-      }
-  
-    
 }

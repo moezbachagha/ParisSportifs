@@ -7,10 +7,7 @@
 
 import Foundation
 struct Team: Decodable {
-    
-    
-    
-       
+
         let idTeam: String?
         let strTeam: String?
         let strAlternate: String?
@@ -22,8 +19,7 @@ struct Team: Decodable {
         let strTeamLogo: String?
         let strTeamBadge: String?
         let strDescriptionFR: String?
-    
-        
+
         enum CodingKeys: String, CodingKey {
             case idTeam
             case strTeam
@@ -36,9 +32,6 @@ struct Team: Decodable {
             case strTeamLogo
             case strTeamBadge
             case strDescriptionFR
-        
-          
-        
-    }
-    }
 
+    }
+    }

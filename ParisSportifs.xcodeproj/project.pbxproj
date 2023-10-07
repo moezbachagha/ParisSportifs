@@ -139,12 +139,10 @@
 				258252682ACF0ED8006BB70D /* App */,
 				258252352ACF0D1A006BB70D /* AppDelegate.swift */,
 				258252372ACF0D1A006BB70D /* SceneDelegate.swift */,
-				2582523B2ACF0D1A006BB70D /* Main.storyboard */,
 				258252412ACF0D1F006BB70D /* Assets.xcassets */,
 				258252432ACF0D1F006BB70D /* LaunchScreen.storyboard */,
 				258252462ACF0D1F006BB70D /* Info.plist */,
 				2582523E2ACF0D1A006BB70D /* ParisSportifs.xcdatamodeld */,
-				25C87F612ACF2A6F00D469A4 /* CollectionViewCell.swift */,
 			);
 			path = ParisSportifs;
 			sourceTree = "<group>";
@@ -235,6 +233,7 @@
 		258252702ACF105D006BB70D /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				2582523B2ACF0D1A006BB70D /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -242,6 +241,7 @@
 		258252712ACF1070006BB70D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				25C87F612ACF2A6F00D469A4 /* CollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
